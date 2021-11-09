@@ -1,0 +1,4 @@
+set(CURLPP_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/../curlpp")
+
+set(CURLPP_INCLUDE_DIR ${CURLPP_BINARY_DIR}/include)
+set(CURLPP_LIB         ${CURLPP_BINARY_DIR}/libcurlpp.a)

@@ -1,0 +1,8 @@
+set(USERLAPACK_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/../lapack")
+
+set(USERBLAS_LIB            ${USERLAPACK_BINARY_DIR}/librefblas.a)
+set(USERCBLAS_LIB           ${USERLAPACK_BINARY_DIR}/libcblas.a)
+set(USERLAPACK_LIB          ${USERLAPACK_BINARY_DIR}/liblapack.a)
+set(USERLAPACKE_LIB         ${USERLAPACK_BINARY_DIR}/liblapacke.a)
+set(USERLAPACK_INCLUDE_DIR  ${USERLAPACK_BINARY_DIR}/include)
+

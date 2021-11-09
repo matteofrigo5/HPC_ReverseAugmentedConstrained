@@ -1,0 +1,3 @@
+set(CUB_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/../cub")
+
+set(CUB_INCLUDE_DIR ${CUB_BINARY_DIR}/include/)

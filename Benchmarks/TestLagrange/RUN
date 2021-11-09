@@ -1,0 +1,5 @@
+#!/bin/bash 
+
+mpirun -n 5 ./driver_Lagrange config.xml
+
+

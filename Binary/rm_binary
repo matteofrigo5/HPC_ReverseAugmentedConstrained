@@ -1,0 +1,11 @@
+# remove Driver_Lagrange directory
+DIR="Driver_Lagrange"
+if [ -d "$DIR" ]; then
+   echo "----> removing Driver_Lagrange directory"
+   cd Driver_Lagrange
+   rm -rf *
+   cd ../
+else
+   echo "----- WARNING Driver_Lagrange directory does not exist"
+fi
+

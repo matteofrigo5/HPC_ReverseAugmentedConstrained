@@ -1,0 +1,87 @@
+<Chronos>
+
+  <Files
+    matrixK="./mat/matK.bin"
+    matrixC="./mat/matC.bin"
+    matrixCt="./mat/matCt.bin"
+    testSpace="rbm.bin"/>
+
+  <GeneralParameters
+    numThreads="4"
+    verbosity="2"
+    metisPart="2"/>
+
+  <Preconditioner
+    gamma="1"
+    precSchur="AMG_mech">
+
+    <aFSAI
+      targetPower="1"
+      numStep="5"
+      stepSize="1"
+      eps="1.e-2"/>
+
+    <AMG_mech
+      cycleType="0"
+      maxNumLevels="20"
+      maxCoarseSize="500">
+
+    <TestSpace
+      ntv="6"
+      method="1"
+      maxIter="10"
+      exitTol="1.e-5"
+      orthFreq="10"
+      ritzFreq="1"/>
+
+    <Smoother
+      type="1"
+      omega="-1"
+      maxIterMaxEig="100"
+      tolMaxEig="1.e-2"
+      nuPre="1"
+      nuPost="1"
+      aFSAItargetPower="2"
+      aFSAInumStep="30"
+      aFSAIstepSize="1"
+      aFSAIeps="1.e-3"/>
+
+    <Coarsen
+      type="0"
+      tau="-40"
+      tauJump="0.0"/>
+
+    <Prolongation
+      type="0"
+      power="4"
+      smooth="1"
+      maxRowNorm="10.0"
+      maxCond="1.e+15"
+      maxIterVol="100"
+      tolVol="1.e-2"
+      eps="1.e-10"
+      minDist="2"
+      maxDist="4"
+      mMax="10"/>
+
+    <Filter
+      prolWeight="1.70"
+      prolTol="0.10"
+      operWeight="0.0"/>
+
+    </AMG_mech>
+
+  </Preconditioner>
+
+  <Solver>
+
+    <BiCGStab
+      maxIter="100"
+      exitTol="1.e-6"
+      initSol="1"
+      printConvProf="1"
+      rhsFlag="2"/>
+
+  </Solver>
+
+</Chronos>

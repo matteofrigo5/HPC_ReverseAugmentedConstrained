@@ -1,0 +1,6 @@
+set(PUGIXML_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/../pugixml")
+
+set(PUGIXML_LIB            ${PUGIXML_BINARY_DIR}/libpugixml.a)
+set(PUGIXML_INCLUDE_DIR ${PUGIXML_BINARY_DIR}/include)
+
+

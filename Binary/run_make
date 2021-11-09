@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# compile Driver_Lagrange
+DIR="Driver_Lagrange"
+if [ -d "$DIR" ]; then
+   echo "----> compiling Driver_Lagrange"
+   cd Driver_Lagrange
+   make 
+   cd ../
+else
+   echo "----- WARNING Driver_Lagrange directory does not exist"
+fi

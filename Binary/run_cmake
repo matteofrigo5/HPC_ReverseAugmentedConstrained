@@ -1,0 +1,52 @@
+#!/bin/bash
+
+#-----------------------------------------------------------------------------------------
+
+# Compiler flag
+# to use GNU set "GNU"
+# to use INTEL set"INTEL" )
+COMPILER="GNU"
+
+# Debug compilation
+# to use Debug mode set "DEBUG"
+# to use Release mode set "RELEASE"
+BUILD="RELEASE"
+
+# MPI thread communication
+# to use funneled (only master thread communicates) mode set "FUNNELED"
+# to use multiple mode set "MULTIPLE"
+MPI_THREAD_COMM="FUNNELED"
+
+# Linear algebra library
+# to use user LAPACKE set "LAPACKE"
+# to use MKL (that contains LAPACKE) set "MKL" (only with INTEL)
+LINEAR_ALG_LIB="LAPACKE"
+
+# SPMV kernel
+# to use M3E kernel set "M3E_SPMV"
+# to use MKL kernel set "MKL_SPMV" (only with INTEL)
+SPMV_KERNEL="M3E_SPMV"
+
+#-----------------------------------------------------------------------------------------
+
+# set up compiler flags
+if [ "$COMPILER" = "GNU" ]; then
+   echo "----> GNU compiler"
+   CXX_COMPILER="g++"
+   Fortran_COMPILER="gfortran"
+elif [ "$COMPILER" = "INTEL" ]; then
+   echo "----> INTEL compiler"
+   CXX_COMPILER="icpc"
+   Fortran_COMPILER="ifort"
+fi
+
+# build Driver_Lagrange
+DIR="Driver_Lagrange"
+if [ -d "$DIR" ]; then
+   echo "----> building Driver_Lagrange"
+   cd Driver_Lagrange
+   cmake -DCXX_COMPILER_TYPE="$CXX_COMPILER" -DFortran_COMPILER_TYPE="$Fortran_COMPILER" -DBUILD_TYPE="$BUILD" -DMPI_THREAD_COMM_TYPE="$MPI_THREAD_COMM" -DLINEAR_ALG_LIB_TYPE="$LINEAR_ALG_LIB" -DSPMV_KERNEL_TYPE="$SPMV_KERNEL" -DCHRONOS_BINARY_DIR=../Chronos ../../Drivers/Driver_Lagrange
+   cd ../
+else
+   echo "----- WARNING Driver_Lagrange directory does not exist"
+fi
